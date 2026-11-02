@@ -1,4 +1,7 @@
 
+# Distribution files - uploaded manually to GitHub Releases
+/dist/
+
 # Build outputs
 bin/
 obj/
@@ -22,6 +25,3 @@ obj/
 # OS files
 Thumbs.db
 .DS_Store
-
-# Keep distribution files
-!dist/
