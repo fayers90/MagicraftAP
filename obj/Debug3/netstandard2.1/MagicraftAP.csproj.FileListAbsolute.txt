@@ -1,0 +1,14 @@
+C:\MagicraftAP\MagicraftAP\bin\Debug3\netstandard2.1\APLogo.png
+C:\MagicraftAP\MagicraftAP\bin\Debug3\netstandard2.1\MagicraftAP.deps.json
+C:\MagicraftAP\MagicraftAP\bin\Debug3\netstandard2.1\MagicraftAP.dll
+C:\MagicraftAP\MagicraftAP\bin\Debug3\netstandard2.1\MagicraftAP.pdb
+C:\MagicraftAP\MagicraftAP\bin\Debug3\netstandard2.1\Archipelago.MultiClient.Net.dll
+C:\MagicraftAP\MagicraftAP\bin\Debug3\netstandard2.1\Newtonsoft.Json.dll
+C:\MagicraftAP\MagicraftAP\obj\Debug3\netstandard2.1\MagicraftAP.csproj.AssemblyReference.cache
+C:\MagicraftAP\MagicraftAP\obj\Debug3\netstandard2.1\MagicraftAP.GeneratedMSBuildEditorConfig.editorconfig
+C:\MagicraftAP\MagicraftAP\obj\Debug3\netstandard2.1\MagicraftAP.AssemblyInfoInputs.cache
+C:\MagicraftAP\MagicraftAP\obj\Debug3\netstandard2.1\MagicraftAP.AssemblyInfo.cs
+C:\MagicraftAP\MagicraftAP\obj\Debug3\netstandard2.1\MagicraftAP.csproj.CoreCompileInputs.cache
+C:\MagicraftAP\MagicraftAP\obj\Debug3\netstandard2.1\Magicraf.B7923B7A.Up2Date
+C:\MagicraftAP\MagicraftAP\obj\Debug3\netstandard2.1\MagicraftAP.dll
+C:\MagicraftAP\MagicraftAP\obj\Debug3\netstandard2.1\MagicraftAP.pdb
