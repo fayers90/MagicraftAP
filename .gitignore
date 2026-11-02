@@ -1,0 +1,27 @@
+
+# Build outputs
+bin/
+obj/
+
+# IDE files
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+
+# Local loader files (root only)
+/winhttp.dll
+/doorstop_config.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.cache
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Keep distribution files
+!dist/
