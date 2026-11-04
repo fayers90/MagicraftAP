@@ -286,7 +286,7 @@ namespace MagicraftAP
 
         // ScoutedItemInfo.Player is an SDK object, not necessarily a slot number.
         // Inspect its actual type before attempting to resolve it through session.Players.
-        private static string ResolveRecipient(ArchipelagoSession session, object item)
+        internal static string ResolveRecipient(ArchipelagoSession session, object item)
         {
             object receiver = MemberValue(item, "Player");
             if (receiver == null) return "UnknownSlot";
@@ -423,7 +423,7 @@ namespace MagicraftAP
             {
                 try
                 {
-                    long[] ids = session.Locations.AllLocations.Where(id => id >= 273905001 && id <= 273905060).ToArray();
+                    long[] ids = session.Locations.AllLocations.ToArray();
                     foreach (MethodInfo method in session.Locations.GetType().GetMethods().Where(m => m.Name == "ScoutLocationsAsync"))
                     {
                         try
@@ -456,7 +456,7 @@ namespace MagicraftAP
                                             " | playerType=" + (MemberValue(value, "Player") == null ? "null" : MemberValue(value, "Player").GetType().FullName) +
                                             " | playerValue=" + Convert.ToString(MemberValue(value, "Player")));
                                     }
-                                    SetScoutedLabel(id, name + " -> " + recipient);
+                                    if (id >= 273905001 && id <= 273905060) SetScoutedLabel(id, name + " -> " + recipient);
                                     string flags = Property(value, "Flags") ?? Property(value, "ItemFlags") ?? "0";
                                     long bits = 0;
                                     if (!long.TryParse(flags, out bits))
@@ -466,7 +466,8 @@ namespace MagicraftAP
                                         if (flags.IndexOf("Trap", StringComparison.OrdinalIgnoreCase) >= 0) bits |= 4;
                                     }
                                     string kind = (bits & 1) != 0 ? "progression" : (bits & 4) != 0 ? "trap" : (bits & 2) != 0 ? "useful" : "filler";
-                                    lock (labelLock) itemKinds[id] = kind;
+                                    lock (labelLock) if (id >= 273905001 && id <= 273905060) itemKinds[id] = kind;
+                                    ArchipelagoNotifications.SetScouted(id, name, recipient, kind);
                                 }
                             if (loggerRecipientWarning != null) logger.LogWarning("[MagicraftAP] Recipient lookup: " + loggerRecipientWarning);
                             logger.LogInfo("[MagicraftAP] Native shop scouting completed.");

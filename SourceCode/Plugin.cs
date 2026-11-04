@@ -10,7 +10,7 @@ namespace MagicraftAP
     [BepInPlugin(
         "gatorbloom.magicraft.ap",
         "Magicraft Archipelago",
-        "0.1.0"
+        "1.1.0"
     )]
     public class Plugin : BaseUnityPlugin
     {
@@ -32,7 +32,7 @@ namespace MagicraftAP
                 apClient.SubmitNextChestCheck();
         }
 
-        private Rect windowRect = new Rect(20, 20, 400, 350);
+        private Rect windowRect = new Rect(20, 20, 400, 535);
 
         private GUIStyle windowStyle;
         private Texture2D windowBackground;
@@ -301,6 +301,7 @@ namespace MagicraftAP
             if (apClient != null)
             {
                 apClient.RefreshConnectionStatus();
+                if (apClient.IsConnected) apClient.PollItems();
 
                 connectionStatus = apClient.Status;
                 isConnected = apClient.IsConnected;
@@ -335,6 +336,7 @@ namespace MagicraftAP
 
         private void OnGUI()
         {
+            ArchipelagoNotifications.Draw();
             if (!showMessage)
                 return;
 
@@ -450,6 +452,8 @@ namespace MagicraftAP
                 "Press F8 to show/hide the Archipelago menu",
                 shortcutStyle
             );
+
+            ArchipelagoNotifications.DrawHistory(new Rect(18, 350, 364, 164));
 
             GUI.DragWindow(
                 new Rect(0, 0, 400, 30)

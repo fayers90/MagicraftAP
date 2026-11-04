@@ -6,8 +6,9 @@
     <AssemblyName>MagicraftAP</AssemblyName>
     <RootNamespace>MagicraftAP</RootNamespace>
     <LangVersion>latest</LangVersion>
-    <Version>0.1.0</Version>
+    <Version>1.1.0</Version>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <DefaultItemExcludes>$(DefaultItemExcludes);dist/**;dist\**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -147,6 +147,7 @@ namespace MagicraftAP
                     BuildLocationCache(newSession);
                     log.LogInfo("[MagicraftAP] Mid-run AP shelves per shop: " + MidRunShopApItems);
                     ArchipelagoShop.ClearLabels();
+                    ArchipelagoNotifications.BeginSession(newSession);
                     ArchipelagoShop.Scout(newSession, log);
                     lock (stateLock)
                     {
@@ -391,7 +392,10 @@ namespace MagicraftAP
             ArchipelagoSession current;
             lock (stateLock) current = connected ? session : null;
             if (current != null && current.Socket.Connected)
-                ArchipelagoItemState.Refresh(current, log);
+                {
+                    ArchipelagoItemState.Refresh(current, log);
+                    ArchipelagoNotifications.Poll(current);
+                }
         }
 
         public void Disconnect()
@@ -414,6 +418,7 @@ namespace MagicraftAP
                 hasEverAuthenticated = false;
                 currentLogin = null;
                 ArchipelagoItemState.Reset();
+                ArchipelagoNotifications.EndSession();
                 pending.Unbind();
             }
             if (oldSession != null)
